@@ -7,9 +7,9 @@
     <property name="hibernate.connection.url">jdbc:derby://localhost:1527/PROJECT_LO54</property>
     <property name="hibernate.connection.username">lo54</property>
     <property name="hibernate.connection.password">lo54</property>
-    <mapping resource="fr/utbm/lo54/project/projectLo54/Course.hbm.xml"/>
-    <mapping resource="fr/utbm/lo54/project/projectLo54/CourseSession.hbm.xml"/>
-    <mapping resource="fr/utbm/lo54/project/projectLo54/Client.hbm.xml"/>
-    <mapping resource="fr/utbm/lo54/project/projectLo54/Location.hbm.xml"/>
+    <mapping resource="fr/utbm/lo54/project/Course.hbm.xml"/>
+    <mapping resource="fr/utbm/lo54/project/CourseSession.hbm.xml"/>
+    <mapping resource="fr/utbm/lo54/project/Client.hbm.xml"/>
+    <mapping resource="fr/utbm/lo54/project/Location.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

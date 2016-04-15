@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 1 avr. 2016 17:55:24 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class name="fr.utbm.lo54.project.projectLo54.core.entity.Client" optimistic-lock="version" schema="LO54" table="CLIENT">
+  <class name="fr.utbm.lo54.project.core.entity.Client" optimistic-lock="version" schema="LO54" table="CLIENT">
     <id name="id" type="int">
       <column name="ID"/>
       <generator class="assigned"/>
