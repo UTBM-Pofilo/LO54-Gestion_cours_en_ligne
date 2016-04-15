@@ -1,4 +1,4 @@
-package fr.utbm.lo54.project.project_lo54.test;
+package fr.utbm.lo54.project.projectLo54.core.entity;
 // Generated 1 avr. 2016 17:55:23 by Hibernate Tools 4.3.1
 
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 avr. 2016 17:55:24 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="fr.utbm.lo54.project.projectLo54.core.entity.Course" optimistic-lock="version" schema="LO54" table="COURSE">
+    <id name="code" type="string">
+      <column length="8" name="CODE"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="title" type="string">
+      <column length="20" name="TITLE" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>
