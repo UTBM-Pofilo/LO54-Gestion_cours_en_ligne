@@ -14,17 +14,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package fr.utbm.lo54.project.core;
+package fr.utbm.lo54.project.core.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-public class App0 {
-    private final static Logger LOGGER = LoggerFactory
-			.getLogger(App0.class);
+public class ClientService {
     
-    public static void main(String[] args) {
-        LOGGER.info("1-2 1-2 info 1-2 1-2");
-        LOGGER.error("1-2 1-2 error 1-2 1-2");
-    }
 }

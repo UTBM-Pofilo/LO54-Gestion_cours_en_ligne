@@ -16,6 +16,28 @@
  */
 package fr.utbm.lo54.project.core.entity.repository;
 
-public class ClientDao {
+import fr.utbm.lo54.project.core.entity.IEntity;
+
+public class ClientDao implements IDao{
+
+    @Override
+    public void insertEntity(IEntity entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updateEntity(IEntity entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removeEntity(IEntity entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public IEntity getEntity(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -14,17 +14,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package fr.utbm.lo54.project.core;
+package fr.utbm.lo54.project.core.entity.repository;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import fr.utbm.lo54.project.core.entity.IEntity;
 
-public class App0 {
-    private final static Logger LOGGER = LoggerFactory
-			.getLogger(App0.class);
+public interface IDao {
     
-    public static void main(String[] args) {
-        LOGGER.info("1-2 1-2 info 1-2 1-2");
-        LOGGER.error("1-2 1-2 error 1-2 1-2");
-    }
+    /**
+     * To insert an entity into the database
+     * @param entity 
+     */
+    void insertEntity(final IEntity entity);
+
+    /**
+     * To update an entity into the database
+     * @param entity 
+     */
+    void updateEntity(final IEntity entity);
+    
+    /**
+     * To remove an entity into the database
+     * @param entity 
+     */
+    void removeEntity(final IEntity entity);
+    
+    // TODO: not sure about parameter
+    IEntity getEntity(final int id);
 }
