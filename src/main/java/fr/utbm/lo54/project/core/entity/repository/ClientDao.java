@@ -17,26 +17,31 @@
 package fr.utbm.lo54.project.core.entity.repository;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ClientDao implements IDao{
 
+    private final static Logger LOGGER = LoggerFactory
+			.getLogger(ClientDao.class);
+    
     @Override
-    public void insertEntity(IEntity entity) {
+    public void insertEntity(final IEntity entity) {
+        DefaultDao.insertEntity(entity);
+    }
+
+    @Override
+    public void updateEntity(final IEntity entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void updateEntity(IEntity entity) {
+    public void removeEntity(final IEntity entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void removeEntity(IEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public IEntity getEntity(int id) {
+    public IEntity getEntity(final int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

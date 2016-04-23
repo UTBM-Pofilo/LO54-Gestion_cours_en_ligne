@@ -17,27 +17,45 @@
 package fr.utbm.lo54.project.core.entity.repository;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
+import fr.utbm.lo54.project.core.util.HibernateUtil;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public interface IDao {
+public class DefaultDao {
+    
+    private final static Logger LOGGER = LoggerFactory
+			.getLogger(DefaultDao.class);
     
     /**
      * To insert an entity into the database
      * @param entity 
      */
-    void insertEntity(final IEntity entity);
+    public static void insertEntity(final IEntity entity) {
+        Session session = HibernateUtil.getSession();
+        try {
+            session.beginTransaction();
+            session.persist(entity);
+            session.getTransaction().commit();
+        } catch(HibernateException e) {
+            LOGGER.error("Insertion of entity: " + e);
+        }
+    }
 
     /**
      * To update an entity into the database
      * @param entity 
      */
-    void updateEntity(final IEntity entity);
+    public static void updateEntity(final IEntity entity) {
+        
+    }
     
     /**
      * To remove an entity into the database
      * @param entity 
      */
-    void removeEntity(final IEntity entity);
-    
-    // TODO: not sure about this parameter
-    IEntity getEntity(final int id);
+    public static void removeEntity(final IEntity entity) {
+        
+    }
 }

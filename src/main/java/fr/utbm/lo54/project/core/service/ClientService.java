@@ -16,6 +16,31 @@
  */
 package fr.utbm.lo54.project.core.service;
 
-public class ClientService {
+import fr.utbm.lo54.project.core.entity.IEntity;
+import fr.utbm.lo54.project.core.entity.repository.ClientDao;
+
+public class ClientService implements IService {
+
+    private ClientDao clientDao = new ClientDao();
+    
+    @Override
+    public void storeEntity(IEntity entity) {
+        this.clientDao.insertEntity(entity);
+    }
+
+    @Override
+    public void updateEntity(IEntity entity) {
+        this.clientDao.updateEntity(entity);
+    }
+
+    @Override
+    public void removeEntity(IEntity entity) {
+        this.clientDao.removeEntity(entity);
+    }
+
+    @Override
+    public IEntity getEntity(int id) {
+        return this.clientDao.getEntity(id);
+    }
     
 }

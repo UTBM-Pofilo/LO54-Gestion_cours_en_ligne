@@ -14,26 +14,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package fr.utbm.lo54.project.core.entity.repository;
+package fr.utbm.lo54.project.core.service;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
 
-public interface IDao {
-    
+/**
+ *
+ * @author Vincent
+ */
+public interface IService {
     /**
-     * To insert an entity into the database
+     * To store an entity
      * @param entity 
      */
-    void insertEntity(final IEntity entity);
+    void storeEntity(final IEntity entity);
 
     /**
-     * To update an entity into the database
+     * To update an entity
      * @param entity 
      */
     void updateEntity(final IEntity entity);
     
     /**
-     * To remove an entity into the database
+     * To remove an entity
      * @param entity 
      */
     void removeEntity(final IEntity entity);
