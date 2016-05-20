@@ -16,6 +16,10 @@
  */
 package fr.utbm.lo54.project.core;
 
+import fr.utbm.lo54.project.core.entity.Client;
+import fr.utbm.lo54.project.core.entity.IEntity;
+import fr.utbm.lo54.project.core.service.ClientService;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +28,29 @@ public class App0 {
 			.getLogger(App0.class);
     
     public static void main(String[] args) {
-        LOGGER.info("1-2 1-2 info 1-2 1-2");
-        LOGGER.error("1-2 1-2 error 1-2 1-2");
+        
+        Client client = new Client();
+        client.setAddress("Lyon");
+        client.setEmail("aamail");
+        client.setFirstName("aa1stname");
+        client.setLastName("aalastname");
+        client.setPhone("aa06");
+        client.setCourseSessionId(0);
+        
+        ClientService clientService = new ClientService();
+        clientService.storeEntity(client);
+        //Client client2 = (Client) clientService.getEntity(0);
+        //LOGGER.info("----> " + client2.getPhone());
+        //clientService.removeEntity(client2);
+        
+        List<IEntity> listClient = clientService.getEntities();
+        
+        for(IEntity entity : listClient) {
+            Client client3 = (Client) entity;
+            //LOGGER.info("************> " + client3.toString());
+        }
+        
+        LOGGER.info("\n\n\n\nOK");
+    
     }
 }

@@ -16,7 +16,12 @@
  */
 package fr.utbm.lo54.project.core.entity.repository;
 
+import fr.utbm.lo54.project.core.entity.Client;
 import fr.utbm.lo54.project.core.entity.IEntity;
+import fr.utbm.lo54.project.core.util.HibernateUtil;
+import java.util.List;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,12 +42,28 @@ public class ClientDao implements IDao{
 
     @Override
     public void removeEntity(final IEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        DefaultDao.removeEntity(entity);
     }
 
     @Override
     public IEntity getEntity(final int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        final Session session = HibernateUtil.getSession();
+        IEntity entity = null;
+        try {
+            session.beginTransaction();
+            entity = (IEntity) session.get(Client.class, id);
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            System.err.println(e);
+        } 
+        return entity;
+    }
+
+    @Override
+    public List<IEntity> getEntities() {
+        String clazz = this.getClass().getSimpleName();
+        clazz = clazz.substring(0, clazz.lastIndexOf("Dao"));
+        return DefaultDao.getEntities(clazz);
     }
     
 }

@@ -9,6 +9,7 @@ public class Course  implements Serializable, IEntity {
 
      private String code;
      private String title;
+     private int id;
 
     public Course() {
     }
@@ -33,6 +34,15 @@ public class Course  implements Serializable, IEntity {
         this.title = title;
     }
 
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 }
 
 

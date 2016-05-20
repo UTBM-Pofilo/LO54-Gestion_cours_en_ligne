@@ -18,7 +18,9 @@ package fr.utbm.lo54.project.core.entity.repository;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
 import fr.utbm.lo54.project.core.util.HibernateUtil;
+import java.util.List;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,6 +58,25 @@ public class DefaultDao {
      * @param entity 
      */
     public static void removeEntity(final IEntity entity) {
-        
+        final Session session = HibernateUtil.getSession();
+        session.delete(entity);
     }
+    
+    /**
+     * To get all the entities
+     * @return 
+     */
+    public static List<IEntity> getEntities(String entity) {
+        final Session session = HibernateUtil.getSession();
+        List<IEntity> listEntities = null;
+        try {
+            Query query = session.createQuery("from " + entity);
+            listEntities = query.list();
+        }catch (HibernateException e) {
+            LOGGER.error("getEntities" + e);
+        } 
+        return listEntities;
+    }
+    
+    
 }

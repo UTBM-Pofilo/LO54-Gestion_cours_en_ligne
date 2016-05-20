@@ -18,6 +18,7 @@ package fr.utbm.lo54.project.core.service;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
 import fr.utbm.lo54.project.core.entity.repository.ClientDao;
+import java.util.List;
 
 public class ClientService implements IService {
 
@@ -42,5 +43,12 @@ public class ClientService implements IService {
     public IEntity getEntity(int id) {
         return this.clientDao.getEntity(id);
     }
+
+    @Override
+    public List<IEntity> getEntities() {
+        return this.clientDao.getEntities();
+    }
+    
+    
     
 }

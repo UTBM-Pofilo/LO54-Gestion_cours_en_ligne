@@ -17,6 +17,7 @@
 package fr.utbm.lo54.project.core.service;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
+import java.util.List;
 
 /**
  *
@@ -43,4 +44,6 @@ public interface IService {
     
     // TODO: not sure about this parameter
     IEntity getEntity(final int id);
+    
+    List<IEntity> getEntities();
 }

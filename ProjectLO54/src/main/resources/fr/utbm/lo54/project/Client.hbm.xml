@@ -4,7 +4,7 @@
   <class name="fr.utbm.lo54.project.core.entity.Client" optimistic-lock="version" schema="LO54" table="CLIENT">
     <id name="id" type="int">
       <column name="ID"/>
-      <generator class="assigned"/>
+      <generator class="increment"/>
     </id>
     <property name="lastName" type="string">
       <column length="14" name="LAST_NAME" not-null="true"/>

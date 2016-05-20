@@ -17,6 +17,7 @@
 package fr.utbm.lo54.project.core.entity.repository;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
+import java.util.List;
 
 public interface IDao {
     
@@ -38,6 +39,16 @@ public interface IDao {
      */
     void removeEntity(final IEntity entity);
     
-    // TODO: not sure about this parameter
+    /**
+     * To get an entity from an id
+     * @param id
+     * @return 
+     */
     IEntity getEntity(final int id);
+    
+    /**
+     * To get all the entities
+     * @return 
+     */
+    List<IEntity> getEntities();
 }

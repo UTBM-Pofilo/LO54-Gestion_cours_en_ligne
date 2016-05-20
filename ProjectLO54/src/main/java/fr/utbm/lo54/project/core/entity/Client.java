@@ -13,7 +13,7 @@ public class Client  implements Serializable, IEntity {
      private String address;
      private String phone;
      private String email;
-     private Integer courseSessionId;
+     private int courseSessionId;
 
     public Client() {
     }
@@ -26,7 +26,7 @@ public class Client  implements Serializable, IEntity {
         this.address = address;
         this.phone = phone;
     }
-    public Client(int id, String lastName, String firstName, String address, String phone, String email, Integer courseSessionId) {
+    public Client(int id, String lastName, String firstName, String address, String phone, String email, int courseSessionId) {
        this.id = id;
        this.lastName = lastName;
        this.firstName = firstName;
@@ -78,14 +78,28 @@ public class Client  implements Serializable, IEntity {
     public void setEmail(String email) {
         this.email = email;
     }
-    public Integer getCourseSessionId() {
+    public int getCourseSessionId() {
         return this.courseSessionId;
     }
     
-    public void setCourseSessionId(Integer courseSessionId) {
+    public void setCourseSessionId(int courseSessionId) {
         this.courseSessionId = courseSessionId;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Client{");
+        builder.append("id=" + id);
+        builder.append(", lastName=" + lastName);
+        builder.append(", firstName=" + firstName);
+        builder.append(", address=" + address);
+        builder.append(", phone=" + phone);
+        builder.append(", email=" + email);
+        //builder.append(", courseSessionId=" + courseSessionId);
+        return builder.toString();
+    }
+    
+    
+
 }
-
-

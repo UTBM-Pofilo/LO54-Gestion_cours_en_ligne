@@ -4,7 +4,7 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
     <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
-    <property name="hibernate.connection.url">jdbc:derby://localhost:1527/PROJECT_LO54</property>
+    <property name="hibernate.connection.url">jdbc:derby://localhost:1527/LO54Project</property>
     <property name="hibernate.connection.username">lo54</property>
     <property name="hibernate.connection.password">lo54</property>
     <mapping resource="fr/utbm/lo54/project/Course.hbm.xml"/>
