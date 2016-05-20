@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="fr.utbm.lo54.project.core.entity.Location" optimistic-lock="version" schema="LO54" table="LOCATION">
+    <id name="id" type="int">
+      <column name="ID"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="city" type="string">
+      <column length="8" name="CITY" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>
