@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="fr.utbm.lo54.project.core.entity">
+  <class name="Client" optimistic-lock="version" schema="LO54" table="CLIENT">
+    <id name="id" type="int">
+      <column name="ID"/>
+      <generator class="increment"/>
+    </id>
+    <property name="lastName">
+      <column name="LAST_NAME" not-null="true"/>
+    </property>
+    <property name="firstName">
+      <column name="FIRST_NAME" not-null="true"/>
+    </property>
+    <property name="address">
+      <column name="ADDRESS" not-null="true"/>
+    </property>
+    <property name="phone">
+      <column name="PHONE" not-null="true"/>
+    </property>
+    <property name="email">
+      <column name="EMAIL" not-null="true"/>
+    </property>
+    <many-to-one name="courseSession" column="COURSE_SESSION_ID"/>
+  </class>
+</hibernate-mapping>

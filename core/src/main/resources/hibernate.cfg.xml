@@ -7,9 +7,10 @@
     <property name="hibernate.connection.url">jdbc:derby://localhost:1527/LO54Project</property>
     <property name="hibernate.connection.username">lo54</property>
     <property name="hibernate.connection.password">lo54</property>
-    <mapping resource="fr/utbm/lo54/project/Course.hbm.xml"/>
-    <mapping resource="fr/utbm/lo54/project/CourseSession.hbm.xml"/>
-    <mapping resource="fr/utbm/lo54/project/Client.hbm.xml"/>
-    <mapping resource="fr/utbm/lo54/project/Location.hbm.xml"/>
+    <property name="hbm2ddl.auto">update</property>
+    <mapping resource="fr/utbm/lo54/project/core/entity/Course.hbm.xml"/>
+    <mapping resource="fr/utbm/lo54/project/core/entity/CourseSession.hbm.xml"/>
+    <mapping resource="fr/utbm/lo54/project/core/entity/Client.hbm.xml"/>
+    <mapping resource="fr/utbm/lo54/project/core/entity/Location.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

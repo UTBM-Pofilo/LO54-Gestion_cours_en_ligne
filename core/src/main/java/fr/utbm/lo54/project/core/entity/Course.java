@@ -36,12 +36,24 @@ public class Course  implements Serializable, IEntity {
 
     @Override
     public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return id;
     }
 
     public void setId(int id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Course{");
+        builder.append("id=").append(id);
+        builder.append(", title=").append(title);
+        builder.append(", code=").append(code);
+        return builder.toString();
+    }
+    
+    
     
 }
 

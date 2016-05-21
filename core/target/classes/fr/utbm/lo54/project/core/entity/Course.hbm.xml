@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping>
-  <class name="fr.utbm.lo54.project.core.entity.Course" optimistic-lock="version" schema="LO54" table="COURSE">
+<hibernate-mapping package="fr.utbm.lo54.project.core.entity">
+  <class name="Course" optimistic-lock="version" schema="LO54" table="COURSE">
     <id name="code" type="string">
-      <column length="8" name="CODE"/>
+      <column name="CODE"/>
       <generator class="assigned"/>
     </id>
-    <property name="title" type="string">
-      <column length="20" name="TITLE" not-null="true"/>
+    <property name="title">
+      <column name="TITLE" not-null="true"/>
     </property>
   </class>
 </hibernate-mapping>

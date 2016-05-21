@@ -13,29 +13,22 @@ public class Client  implements Serializable, IEntity {
      private String address;
      private String phone;
      private String email;
-     private int courseSessionId;
+     private CourseSession courseSession;
 
     public Client() {
     }
 
-	
-    public Client(int id, String lastName, String firstName, String address, String phone) {
-        this.id = id;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.address = address;
-        this.phone = phone;
-    }
-    public Client(int id, String lastName, String firstName, String address, String phone, String email, int courseSessionId) {
+    public Client(int id, String lastName, String firstName, String address, String phone, String email, CourseSession courseSession) {
        this.id = id;
        this.lastName = lastName;
        this.firstName = firstName;
        this.address = address;
        this.phone = phone;
        this.email = email;
-       this.courseSessionId = courseSessionId;
+       this.courseSession = courseSession;
     }
    
+    @Override
     public int getId() {
         return this.id;
     }
@@ -78,25 +71,25 @@ public class Client  implements Serializable, IEntity {
     public void setEmail(String email) {
         this.email = email;
     }
-    public int getCourseSessionId() {
-        return this.courseSessionId;
+    public CourseSession getCourseSession() {
+        return this.courseSession;
     }
     
-    public void setCourseSessionId(int courseSessionId) {
-        this.courseSessionId = courseSessionId;
+    public void setCourseSession(CourseSession courseSession) {
+        this.courseSession = courseSession;
     }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("Client{");
-        builder.append("id=" + id);
-        builder.append(", lastName=" + lastName);
-        builder.append(", firstName=" + firstName);
-        builder.append(", address=" + address);
-        builder.append(", phone=" + phone);
-        builder.append(", email=" + email);
-        //builder.append(", courseSessionId=" + courseSessionId);
+        builder.append("id=").append(id);
+        builder.append(", lastName=").append(lastName);
+        builder.append(", firstName=").append(firstName);
+        builder.append(", address=").append(address);
+        builder.append(", phone=").append(phone);
+        builder.append(", email=").append(email);
+        builder.append(", courseSession=").append(courseSession.toString());
         return builder.toString();
     }
     

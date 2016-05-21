@@ -17,9 +17,8 @@
 package fr.utbm.lo54.project.core;
 
 import fr.utbm.lo54.project.core.entity.Client;
-import fr.utbm.lo54.project.core.entity.IEntity;
 import fr.utbm.lo54.project.core.service.ClientService;
-import java.util.List;
+import fr.utbm.lo54.project.core.util.HibernateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,20 +34,21 @@ public class App0 {
         client.setFirstName("aa1stname");
         client.setLastName("aalastname");
         client.setPhone("aa06");
-        client.setCourseSessionId(0);
+        //client.setCourseSessionId(0);
         
         ClientService clientService = new ClientService();
-        clientService.storeEntity(client);
+        HibernateUtil.getSession();
+        //clientService.storeEntity(client);
         //Client client2 = (Client) clientService.getEntity(0);
         //LOGGER.info("----> " + client2.getPhone());
         //clientService.removeEntity(client2);
         
-        List<IEntity> listClient = clientService.getEntities();
+        //List<IEntity> listClient = clientService.getEntities();
         
-        for(IEntity entity : listClient) {
-            Client client3 = (Client) entity;
+        //for(IEntity entity : listClient) {
+         //   Client client3 = (Client) entity;
             //LOGGER.info("************> " + client3.toString());
-        }
+       // }
         
         LOGGER.info("\n\n\n\nOK");
     

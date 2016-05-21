@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="fr.utbm.lo54.project.core.entity">
+  <class name="CourseSession" optimistic-lock="version" schema="LO54" table="COURSE_SESSION">
+    <id name="id" type="int">
+      <column name="ID"/>
+      <generator class="increment"/>
+    </id>
+    <property name="startDate">
+      <column name="START_DATE" not-null="true"/>
+    </property>
+    <property name="endDate">
+      <column name="END_DATE" not-null="true"/>
+    </property>
+    <many-to-one name="course" column="COURSE_CODE"/>
+    <many-to-one name="location" column="LOCATION_ID"/>
+  </class>
+</hibernate-mapping>
