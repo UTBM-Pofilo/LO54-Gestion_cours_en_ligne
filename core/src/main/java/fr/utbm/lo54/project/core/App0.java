@@ -16,9 +16,12 @@
  */
 package fr.utbm.lo54.project.core;
 
-import fr.utbm.lo54.project.core.entity.Client;
-import fr.utbm.lo54.project.core.service.ClientService;
-import fr.utbm.lo54.project.core.util.HibernateUtil;
+import fr.utbm.lo54.project.core.entity.Course;
+import fr.utbm.lo54.project.core.entity.IEntity;
+import fr.utbm.lo54.project.core.entity.Location;
+import fr.utbm.lo54.project.core.entity.repository.CourseDao;
+import fr.utbm.lo54.project.core.entity.repository.LocationDao;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,27 +31,36 @@ public class App0 {
     
     public static void main(String[] args) {
         
-        Client client = new Client();
-        client.setAddress("Lyon");
-        client.setEmail("aamail");
-        client.setFirstName("aa1stname");
-        client.setLastName("aalastname");
-        client.setPhone("aa06");
-        //client.setCourseSessionId(0);
+        LocationDao locationDao = new LocationDao();
+        Location location = new Location("Paris");
+        //locationDao.insertEntity(location);
+        //LOGGER.info("location: " + locationDao.getEntity(2).toString());
         
-        ClientService clientService = new ClientService();
-        HibernateUtil.getSession();
-        //clientService.storeEntity(client);
-        //Client client2 = (Client) clientService.getEntity(0);
-        //LOGGER.info("----> " + client2.getPhone());
-        //clientService.removeEntity(client2);
+        List<IEntity> listLocation = locationDao.getEntities();
         
-        //List<IEntity> listClient = clientService.getEntities();
+        for(IEntity entity : listLocation) {
+            Location location2 = (Location) entity;
+            LOGGER.info("--> " + location2.toString());
+        }
         
-        //for(IEntity entity : listClient) {
-         //   Client client3 = (Client) entity;
-            //LOGGER.info("************> " + client3.toString());
-       // }
+        
+        /////////////////////////////////////////////////////////
+        
+        CourseDao courseDao = new CourseDao();
+        Course course = new Course("LC00", "Chinois");
+        // courseDao.insertEntity(course);
+        
+        LOGGER.info("course: " + courseDao.getEntity("LO54").toString());
+        
+        List<IEntity> listCourse = courseDao.getEntities();
+        for(IEntity entity : listCourse) {
+            Course course2 = (Course) entity;
+            LOGGER.info("--> " + course2.toString());
+        }
+        
+        /////////////////////////////////////////////////////////
+        
+        // TODO: tester courseSession et client
         
         LOGGER.info("\n\n\n\nOK");
     

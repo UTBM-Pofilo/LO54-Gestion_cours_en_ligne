@@ -13,12 +13,10 @@ public class Location  implements Serializable, IEntity {
     public Location() {
     }
 
-    public Location(int id, String city) {
-       this.id = id;
+    public Location(String city) {
        this.city = city;
     }
-   
-    @Override
+
     public int getId() {
         return this.id;
     }
@@ -40,6 +38,7 @@ public class Location  implements Serializable, IEntity {
         builder.append("Location{");
         builder.append("id=").append(id);
         builder.append(", city=").append(city);
+        builder.append("}");
         return builder.toString();
     }
 }

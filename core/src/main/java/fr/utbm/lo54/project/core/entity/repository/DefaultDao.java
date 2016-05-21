@@ -63,14 +63,55 @@ public class DefaultDao {
     }
     
     /**
-     * To get all the entities
+     * To get an entity from his id and class
+     * @param id
+     * @param clazz
      * @return 
      */
-    public static List<IEntity> getEntities(String entity) {
+    public static IEntity getEntity(final int id, String clazz) {
+        final Session session = HibernateUtil.getSession();
+        IEntity entity = null;
+        try {
+            session.beginTransaction();
+            // entity = (IEntity) session.get(Client.class, id);
+            entity = (IEntity) session.get(clazz, id);
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            System.err.println(e);
+        } 
+        return entity;
+    }
+    
+    /**
+     * To get an entity from his id and class
+     * @param id
+     * @param clazz
+     * @return 
+     */
+    public static IEntity getEntity(final String id, String clazz) {
+        final Session session = HibernateUtil.getSession();
+        IEntity entity = null;
+        try {
+            session.beginTransaction();
+            // entity = (IEntity) session.get(Client.class, id);
+            entity = (IEntity) session.get(clazz, id);
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            System.err.println(e);
+        } 
+        return entity;
+    }
+    
+    /**
+     * To get all the entities
+     * @param clazz
+     * @return 
+     */
+    public static List<IEntity> getEntities(String clazz) {
         final Session session = HibernateUtil.getSession();
         List<IEntity> listEntities = null;
         try {
-            Query query = session.createQuery("from " + entity);
+            Query query = session.createQuery("from " + clazz);
             listEntities = query.list();
         }catch (HibernateException e) {
             LOGGER.error("getEntities" + e);

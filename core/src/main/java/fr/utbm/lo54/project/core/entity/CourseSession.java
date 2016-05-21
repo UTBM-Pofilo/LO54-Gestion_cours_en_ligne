@@ -23,8 +23,7 @@ public class CourseSession  implements Serializable, IEntity {
        this.course = course;
        this.location = location;
     }
-   
-     @Override
+
     public int getId() {
         return this.id;
     }
@@ -70,6 +69,7 @@ public class CourseSession  implements Serializable, IEntity {
         builder.append(", endDate=").append(endDate);
         builder.append(", course=").append(course.toString());
         builder.append(", location=").append(location.toString());
+        builder.append("}");
         return builder.toString();
     }
     

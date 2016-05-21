@@ -17,13 +17,14 @@
 package fr.utbm.lo54.project.core.entity.repository;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
+import fr.utbm.lo54.project.core.entity.Location;
 import java.util.List;
 
 public class LocationDao implements IDao {
 
     @Override
     public void insertEntity(IEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        DefaultDao.insertEntity(entity);
     }
 
     @Override
@@ -33,17 +34,17 @@ public class LocationDao implements IDao {
 
     @Override
     public void removeEntity(IEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        DefaultDao.removeEntity(entity);
     }
 
     @Override
     public IEntity getEntity(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return DefaultDao.getEntity(id, Location.class.getCanonicalName());
     }
 
     @Override
     public List<IEntity> getEntities() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return DefaultDao.getEntities(Location.class.getCanonicalName());
     }
     
 }

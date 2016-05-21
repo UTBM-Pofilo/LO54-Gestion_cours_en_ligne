@@ -27,8 +27,7 @@ public class Client  implements Serializable, IEntity {
        this.email = email;
        this.courseSession = courseSession;
     }
-   
-    @Override
+
     public int getId() {
         return this.id;
     }
@@ -90,6 +89,7 @@ public class Client  implements Serializable, IEntity {
         builder.append(", phone=").append(phone);
         builder.append(", email=").append(email);
         builder.append(", courseSession=").append(courseSession.toString());
+        builder.append("}");
         return builder.toString();
     }
     

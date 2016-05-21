@@ -7,9 +7,8 @@ import java.io.Serializable;
  */
 public class Course  implements Serializable, IEntity {
 
-     private String code;
-     private String title;
-     private int id;
+    private String code;
+    private String title;
 
     public Course() {
     }
@@ -35,25 +34,16 @@ public class Course  implements Serializable, IEntity {
     }
 
     @Override
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("Course{");
-        builder.append("id=").append(id);
-        builder.append(", title=").append(title);
+        builder.append("title=").append(title);
         builder.append(", code=").append(code);
+        builder.append("}");
         return builder.toString();
     }
-    
-    
+
+   
     
 }
 
