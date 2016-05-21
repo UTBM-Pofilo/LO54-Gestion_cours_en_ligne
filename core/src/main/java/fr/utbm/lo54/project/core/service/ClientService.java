@@ -22,7 +22,11 @@ import java.util.List;
 
 public class ClientService implements IService {
 
-    private ClientDao clientDao = new ClientDao();
+    private final ClientDao clientDao;
+
+    public ClientService() {
+        this.clientDao = new ClientDao();
+    }
     
     @Override
     public void storeEntity(IEntity entity) {

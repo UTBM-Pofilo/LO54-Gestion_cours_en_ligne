@@ -16,6 +16,34 @@
  */
 package fr.utbm.lo54.project.core.entity.repository;
 
-public class LocationDao {
+import fr.utbm.lo54.project.core.entity.IEntity;
+import java.util.List;
+
+public class LocationDao implements IDao {
+
+    @Override
+    public void insertEntity(IEntity entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updateEntity(IEntity entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removeEntity(IEntity entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public IEntity getEntity(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<IEntity> getEntities() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
