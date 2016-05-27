@@ -32,6 +32,7 @@ public class App0 {
         for (IEntity entity : listLocation) {
             Location location2 = (Location) entity;
             LOGGER.info("--> " + location2.toString());
+            LOGGER.info("kkkkkkkkkkkkkkkkkkkkkkkk -> " + location2.getId());
         }
 
         /////////////////////////////////////////////////////////
@@ -87,6 +88,19 @@ public class App0 {
             Client client2 = (Client) entity;
             LOGGER.info("°°°°°°--> " + client2.toString());
         }
+        
+        ///////////////////////////////////////////////////////////////
+        
+        
+        List<IEntity> listFilter = courseSessionDao.getEntitiesLocation("Les Auxons");
+        for (IEntity entity : listFilter) {
+            CourseSession course3 = (CourseSession) entity;
+            LOGGER.info("€€€€€€€€€€€€€€€€€ --> " + course3.toString());
+        }
+        
+        
+        
+        
         LOGGER.info("\n\n\n\nOK");
 
     }

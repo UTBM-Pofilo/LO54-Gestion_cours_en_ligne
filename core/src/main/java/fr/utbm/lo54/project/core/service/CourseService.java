@@ -35,4 +35,8 @@ public class CourseService implements IService {
     public List<IEntity> getEntities() {
         return this.courseDao.getEntities();
     }
+
+    public List<IEntity> getEntities(String filter) {
+        return this.courseDao.getEntities(filter);
+    }
 }

@@ -29,10 +29,12 @@ public interface IDao {
      * @return 
      */
     IEntity getEntity(final int id);
+
     
     /**
      * To get all the entities
      * @return 
      */
     List<IEntity> getEntities();
+
 }

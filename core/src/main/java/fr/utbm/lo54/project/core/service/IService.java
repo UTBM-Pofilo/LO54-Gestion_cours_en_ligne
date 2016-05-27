@@ -29,5 +29,9 @@ public interface IService {
      */
     IEntity getEntity(final int id);
     
+    /**
+     * To get the list of entities
+     * @return 
+     */
     List<IEntity> getEntities();
 }

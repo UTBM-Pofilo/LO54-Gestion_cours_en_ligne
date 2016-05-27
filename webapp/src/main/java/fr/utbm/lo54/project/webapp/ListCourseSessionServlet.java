@@ -5,9 +5,9 @@
  */
 package fr.utbm.lo54.project.webapp;
 
-import fr.utbm.lo54.project.core.entity.Course;
+import fr.utbm.lo54.project.core.entity.CourseSession;
 import fr.utbm.lo54.project.core.entity.IEntity;
-import fr.utbm.lo54.project.core.service.CourseService;
+import fr.utbm.lo54.project.core.service.CourseSessionService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Vincent
  */
 @WebServlet(name = "ListCoursesServlet", urlPatterns = {"/ListCoursesServlet"})
-public class ListCoursesServlet extends HttpServlet {
+public class ListCourseSessionServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,8 +37,8 @@ public class ListCoursesServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        CourseService courseService = new CourseService();
-        List<IEntity> listCourses = courseService.getEntities();
+        CourseSessionService courseSessionService = new CourseSessionService();
+        List<IEntity> listCourses = courseSessionService.getEntities();
         
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -50,8 +50,9 @@ public class ListCoursesServlet extends HttpServlet {
             out.println("<body>");
             out.println("<h1>List of all courses</h1>");
             for(IEntity entity : listCourses) {
-                Course course = (Course) entity;
-                out.println("<li>" + course.getCode() + " | " + course.getTitle());
+                CourseSession courseSession = (CourseSession) entity;
+                out.println("<li>" + courseSession.getCourse().getCode() + " | " + courseSession.getCourse().getTitle());
+                out.println(" | Start: " + courseSession.getStartDate());
                 out.println("</li>");
             }
             out.println("</body>");
