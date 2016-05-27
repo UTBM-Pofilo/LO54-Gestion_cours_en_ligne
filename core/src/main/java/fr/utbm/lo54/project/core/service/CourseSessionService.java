@@ -2,6 +2,7 @@ package fr.utbm.lo54.project.core.service;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
 import fr.utbm.lo54.project.core.entity.repository.CourseSessionDao;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class CourseSessionService implements IService {
@@ -12,27 +13,39 @@ public class CourseSessionService implements IService {
     }
     
     @Override
-    public void storeEntity(IEntity entity) {
+    public void storeEntity(final IEntity entity) {
         this.courseSessionDao.insertEntity(entity);
     }
 
     @Override
-    public void updateEntity(IEntity entity) {
+    public void updateEntity(final IEntity entity) {
         this.courseSessionDao.updateEntity(entity);
     }
 
     @Override
-    public void removeEntity(IEntity entity) {
+    public void removeEntity(final IEntity entity) {
         this.courseSessionDao.removeEntity(entity);
     }
 
     @Override
-    public IEntity getEntity(int id) {
+    public IEntity getEntity(final int id) {
         return this.courseSessionDao.getEntity(id);
     }
 
     @Override
     public List<IEntity> getEntities() {
         return this.courseSessionDao.getEntities();
+    }
+    
+    public List<IEntity> getEntitiesByTitle(final String filter) {
+        return this.courseSessionDao.getEntitiesByTitle(filter);
+    }
+    
+    public List<IEntity> getEntitiesByLocation(final String filter) {
+        return this.courseSessionDao.getEntitiesByLocation(filter);
+    }
+    
+    public List<IEntity> getEntitiesByTimeStamp(final Timestamp tmin, final Timestamp tmax) {
+        return this.courseSessionDao.getEntitiesByTimeStamp(tmin, tmax);
     }
 }

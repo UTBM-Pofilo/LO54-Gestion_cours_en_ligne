@@ -92,7 +92,7 @@ public class App0 {
         ///////////////////////////////////////////////////////////////
         
         
-        List<IEntity> listFilter = courseSessionDao.getEntitiesLocation("Les Auxons");
+        List<IEntity> listFilter = courseSessionDao.getEntitiesByLocation("Les Auxons");
         for (IEntity entity : listFilter) {
             CourseSession course3 = (CourseSession) entity;
             LOGGER.info("€€€€€€€€€€€€€€€€€ --> " + course3.toString());

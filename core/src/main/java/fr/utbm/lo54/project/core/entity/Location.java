@@ -10,7 +10,7 @@ public class Location  implements Serializable, IEntity {
     public Location() {
     }
 
-    public Location(String city) {
+    public Location(final String city) {
        this.city = city;
     }
 
@@ -18,14 +18,14 @@ public class Location  implements Serializable, IEntity {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(final int id) {
         this.id = id;
     }
     public String getCity() {
         return this.city;
     }
     
-    public void setCity(String city) {
+    public void setCity(final String city) {
         this.city = city;
     }
 

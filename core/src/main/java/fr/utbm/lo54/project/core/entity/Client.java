@@ -15,7 +15,7 @@ public class Client  implements Serializable, IEntity {
     public Client() {
     }
 
-    public Client(String lastName, String firstName, String address, String phone, String email, CourseSession courseSession) {
+    public Client(final String lastName, final String firstName, final String address, final String phone, final String email, final CourseSession courseSession) {
        this.lastName = lastName;
        this.firstName = firstName;
        this.address = address;
@@ -28,49 +28,49 @@ public class Client  implements Serializable, IEntity {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(final int id) {
         this.id = id;
     }
     public String getLastName() {
         return this.lastName;
     }
     
-    public void setLastName(String lastName) {
+    public void setLastName(final String lastName) {
         this.lastName = lastName;
     }
     public String getFirstName() {
         return this.firstName;
     }
     
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
     public String getAddress() {
         return this.address;
     }
     
-    public void setAddress(String address) {
+    public void setAddress(final String address) {
         this.address = address;
     }
     public String getPhone() {
         return this.phone;
     }
     
-    public void setPhone(String phone) {
+    public void setPhone(final String phone) {
         this.phone = phone;
     }
     public String getEmail() {
         return this.email;
     }
     
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
     public CourseSession getCourseSession() {
         return this.courseSession;
     }
     
-    public void setCourseSession(CourseSession courseSession) {
+    public void setCourseSession(final CourseSession courseSession) {
         this.courseSession = courseSession;
     }
 

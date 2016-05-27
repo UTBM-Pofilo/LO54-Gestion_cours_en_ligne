@@ -12,31 +12,27 @@ public class CourseService implements IService {
     }
     
     @Override
-    public void storeEntity(IEntity entity) {
+    public void storeEntity(final IEntity entity) {
         this.courseDao.insertEntity(entity);
     }
 
     @Override
-    public void updateEntity(IEntity entity) {
+    public void updateEntity(final IEntity entity) {
         this.courseDao.updateEntity(entity);
     }
 
     @Override
-    public void removeEntity(IEntity entity) {
+    public void removeEntity(final IEntity entity) {
         this.courseDao.removeEntity(entity);
     }
 
     @Override
-    public IEntity getEntity(int id) {
+    public IEntity getEntity(final int id) {
         return this.courseDao.getEntity(id);
     }
 
     @Override
     public List<IEntity> getEntities() {
         return this.courseDao.getEntities();
-    }
-
-    public List<IEntity> getEntities(String filter) {
-        return this.courseDao.getEntities(filter);
     }
 }

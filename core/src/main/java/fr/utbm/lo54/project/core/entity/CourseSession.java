@@ -14,7 +14,7 @@ public class CourseSession  implements Serializable, IEntity {
     public CourseSession() {
     }
 
-    public CourseSession(Timestamp startDate, Timestamp endDate, Course course, Location location) {
+    public CourseSession(final Timestamp startDate, final Timestamp endDate, final Course course, final Location location) {
        this.startDate = startDate;
        this.endDate = endDate;
        this.course = course;
@@ -25,35 +25,35 @@ public class CourseSession  implements Serializable, IEntity {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(final int id) {
         this.id = id;
     }
     public Timestamp getStartDate() {
         return this.startDate;
     }
     
-    public void setStartDate(Timestamp startDate) {
+    public void setStartDate(final Timestamp startDate) {
         this.startDate = startDate;
     }
     public Timestamp getEndDate() {
         return this.endDate;
     }
     
-    public void setEndDate(Timestamp endDate) {
+    public void setEndDate(final Timestamp endDate) {
         this.endDate = endDate;
     }
     public Course getCourse() {
         return this.course;
     }
     
-    public void setCourse(Course course) {
+    public void setCourse(final Course course) {
         this.course = course;
     }
     public Location getLocation() {
         return this.location;
     }
     
-    public void setLocation(Location location) {
+    public void setLocation(final Location location) {
         this.location = location;
     }
 

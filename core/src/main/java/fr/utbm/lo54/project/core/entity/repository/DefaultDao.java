@@ -52,7 +52,7 @@ public class DefaultDao {
      * @param clazz
      * @return 
      */
-    public static IEntity getEntity(final int id, String clazz) {
+    public static IEntity getEntity(final int id, final String clazz) {
         final Session session = HibernateUtil.getSession();
         IEntity entity = null;
         try {
@@ -71,7 +71,7 @@ public class DefaultDao {
      * @param clazz
      * @return 
      */
-    public static IEntity getEntity(final String id, String clazz) {
+    public static IEntity getEntity(final String id, final String clazz) {
         final Session session = HibernateUtil.getSession();
         IEntity entity = null;
         try {
@@ -90,7 +90,7 @@ public class DefaultDao {
      * @param clazz
      * @return 
      */
-    public static List<IEntity> getEntities(String clazz) {
+    public static List<IEntity> getEntities(final String clazz) {
         final Session session = HibernateUtil.getSession();
         List<IEntity> listEntities = null;
         try {

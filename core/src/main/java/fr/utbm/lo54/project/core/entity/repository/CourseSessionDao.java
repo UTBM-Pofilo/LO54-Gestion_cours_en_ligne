@@ -1,12 +1,12 @@
 package fr.utbm.lo54.project.core.entity.repository;
 
+import fr.utbm.lo54.project.core.entity.Course;
 import fr.utbm.lo54.project.core.entity.CourseSession;
 import fr.utbm.lo54.project.core.entity.IEntity;
 import fr.utbm.lo54.project.core.entity.Location;
 import fr.utbm.lo54.project.core.util.HibernateUtil;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -20,22 +20,22 @@ public class CourseSessionDao implements IDao {
 			.getLogger(CourseSessionDao.class);
 
     @Override
-    public void insertEntity(IEntity entity) {
+    public void insertEntity(final IEntity entity) {
         DefaultDao.insertEntity(entity);
     }
 
     @Override
-    public void updateEntity(IEntity entity) {
+    public void updateEntity(final IEntity entity) {
         DefaultDao.updateEntity(entity);
     }
 
     @Override
-    public void removeEntity(IEntity entity) {
+    public void removeEntity(final IEntity entity) {
         DefaultDao.removeEntity(entity);
     }
 
     @Override
-    public IEntity getEntity(int id) {
+    public IEntity getEntity(final int id) {
         return DefaultDao.getEntity(id, CourseSession.class.getCanonicalName());
     }
 
@@ -44,26 +44,14 @@ public class CourseSessionDao implements IDao {
         return DefaultDao.getEntities(CourseSession.class.getCanonicalName());
     }
     
-    public List<IEntity> getEntitiesTimeStamp() {
+    public List<IEntity> getEntitiesByTimeStamp(final Timestamp tmin, final Timestamp tmax) {
         final Session session = HibernateUtil.getSession();
         List<IEntity> listEntities = null;
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, 2016);
-        calendar.set(Calendar.MONTH, Calendar.MAY);
-        calendar.set(Calendar.DAY_OF_MONTH, 24);
-        calendar.set(Calendar.HOUR_OF_DAY, 00);
-        calendar.set(Calendar.MINUTE, 00);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-        
-        Timestamp timestampMin = new Timestamp(calendar.getTimeInMillis());
-        calendar.set(Calendar.YEAR, 2017);
-        Timestamp timestampMax = new Timestamp(calendar.getTimeInMillis());
         
         try {
             Query query = session.createQuery("from " + CourseSession.class.getCanonicalName() + " c where c.startDate < :timeStampMax and c.startDate > :timeStampMin");
-            query.setParameter("timeStampMin", timestampMin);
-            query.setParameter("timeStampMax", timestampMax);
+            query.setParameter("timeStampMin", tmin);
+            query.setParameter("timeStampMax", tmax);
             listEntities = query.list();
         }catch (HibernateException e) {
             LOGGER.error("getEntities" + e);
@@ -71,7 +59,7 @@ public class CourseSessionDao implements IDao {
         return listEntities;
     }
     
-    public List<IEntity> getEntitiesLocation(final String filter) {
+    public List<IEntity> getEntitiesByLocation(final String filter) {
         final Session session = HibernateUtil.getSession();
         List<IEntity> listEntities = null;
         
@@ -101,5 +89,18 @@ public class CourseSessionDao implements IDao {
             } 
         }
         return listResult;
+    }
+    
+    public List<IEntity> getEntitiesByTitle(final String filter) {
+        final Session session = HibernateUtil.getSession();
+        List<IEntity> listEntities = null;
+        try {
+            Query query = session.createQuery("from " + Course.class.getCanonicalName() + " where title like :titleFilter");
+            query.setParameter("titleFilter", "%" + filter + "%");
+            listEntities = query.list();
+        }catch (HibernateException e) {
+            LOGGER.error("getEntities" + e);
+        } 
+        return listEntities;
     }
 }

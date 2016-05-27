@@ -7,22 +7,22 @@ import java.util.List;
 public class LocationDao implements IDao {
 
     @Override
-    public void insertEntity(IEntity entity) {
+    public void insertEntity(final IEntity entity) {
         DefaultDao.insertEntity(entity);
     }
 
     @Override
-    public void updateEntity(IEntity entity) {
+    public void updateEntity(final IEntity entity) {
         DefaultDao.updateEntity(entity);
     }
 
     @Override
-    public void removeEntity(IEntity entity) {
+    public void removeEntity(final IEntity entity) {
         DefaultDao.removeEntity(entity);
     }
 
     @Override
-    public IEntity getEntity(int id) {
+    public IEntity getEntity(final int id) {
         return DefaultDao.getEntity(id, Location.class.getCanonicalName());
     }
 

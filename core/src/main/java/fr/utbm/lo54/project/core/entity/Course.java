@@ -10,7 +10,7 @@ public class Course  implements Serializable, IEntity {
     public Course() {
     }
 
-    public Course(String code, String title) {
+    public Course(final String code, final String title) {
        this.code = code;
        this.title = title;
     }
@@ -19,14 +19,14 @@ public class Course  implements Serializable, IEntity {
         return this.code;
     }
     
-    public void setCode(String code) {
+    public void setCode(final String code) {
         this.code = code;
     }
     public String getTitle() {
         return this.title;
     }
     
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
