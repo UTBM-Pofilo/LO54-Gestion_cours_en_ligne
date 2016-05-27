@@ -30,13 +30,16 @@ public class HomeServlet extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Course Online | Home</title>");            
+            out.println("<head>");       
+            out.println("<link rel=\"stylesheet\" href=\"../css/bootstrap.min.css\"/>");
+            out.println("<script src=\"../js/bootstrap.min.js\"></script>");      
+            out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
+            out.println("<title>Course Online | Home</title>"); 
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Welcome to the Online Courses</h1>");
             out.println("<a href=\"listCourses\">List of courses</a><br>");
-            out.println("<a href=\"addCourseForm.html\">Add a course</a>");
+            out.println("<a href=\"/webapp/jsp/addCourseForm.jsp\">Add a course</a>");
             out.println("</body>");
             out.println("</html>");
         }
