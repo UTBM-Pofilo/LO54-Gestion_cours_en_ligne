@@ -17,8 +17,8 @@ public class LocationService implements IService {
     }
 
     @Override
-    public void updateEntity(final IEntity entity) {
-        this.locationDao.updateEntity(entity);
+    public void updateEntity(final Object id, final IEntity entity) {
+        this.locationDao.updateEntity(id, entity);
     }
 
     @Override

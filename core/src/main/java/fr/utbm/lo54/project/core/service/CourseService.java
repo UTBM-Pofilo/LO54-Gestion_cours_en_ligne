@@ -17,8 +17,8 @@ public class CourseService implements IService {
     }
 
     @Override
-    public void updateEntity(final IEntity entity) {
-        this.courseDao.updateEntity(entity);
+    public void updateEntity(final Object id, final IEntity entity) {
+        this.courseDao.updateEntity(id, entity);
     }
 
     @Override

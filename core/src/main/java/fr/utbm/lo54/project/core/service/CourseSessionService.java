@@ -18,8 +18,8 @@ public class CourseSessionService implements IService {
     }
 
     @Override
-    public void updateEntity(final IEntity entity) {
-        this.courseSessionDao.updateEntity(entity);
+    public void updateEntity(final Object id, final IEntity entity) {
+        this.courseSessionDao.updateEntity(id, entity);
     }
 
     @Override

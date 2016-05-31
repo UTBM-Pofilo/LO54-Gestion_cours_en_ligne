@@ -25,8 +25,8 @@ public class CourseSessionDao implements IDao {
     }
 
     @Override
-    public void updateEntity(final IEntity entity) {
-        DefaultDao.updateEntity(entity);
+    public void updateEntity(final Object id, final IEntity entity) {
+        DefaultDao.updateEntity((int) id, CourseSession.class.getCanonicalName(), entity);
     }
 
     @Override

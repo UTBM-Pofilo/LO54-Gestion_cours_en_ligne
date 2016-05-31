@@ -18,8 +18,8 @@ public class ClientService implements IService {
     }
 
     @Override
-    public void updateEntity(final IEntity entity) {
-        this.clientDao.updateEntity(entity);
+    public void updateEntity(final Object id, final IEntity entity) {
+        this.clientDao.updateEntity(id, entity);
     }
 
     @Override

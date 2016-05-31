@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DefaultDao {
+public class DefaultDao<T> {
     
     private final static Logger LOGGER = LoggerFactory
 			.getLogger(DefaultDao.class);
@@ -31,10 +31,22 @@ public class DefaultDao {
 
     /**
      * To update an entity into the database
+     * @param id
+     * @param clazz
      * @param entity 
      */
-    public static void updateEntity(final IEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public static void updateEntity(final int id, final String clazz, final IEntity entity) {
+      
+    }
+
+     /**
+     * To update an entity into the database
+     * @param id
+     * @param clazz
+     * @param entity 
+     */
+    public static void updateEntity(final String id, final String clazz, final IEntity entity) {
+      
     }
     
     /**

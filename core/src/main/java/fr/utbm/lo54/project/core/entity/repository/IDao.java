@@ -13,9 +13,10 @@ public interface IDao<T> {
 
     /**
      * To update an entity into the database
+     * @param id
      * @param entity 
      */
-    void updateEntity(final IEntity entity);
+    void updateEntity(final T id, final IEntity entity);
     
     /**
      * To remove an entity into the database

@@ -12,9 +12,10 @@ public interface IService<T> {
 
     /**
      * To update an entity
+     * @param id
      * @param entity 
      */
-    void updateEntity(final IEntity entity);
+    void updateEntity(final T id, final IEntity entity);
     
     /**
      * To remove an entity
