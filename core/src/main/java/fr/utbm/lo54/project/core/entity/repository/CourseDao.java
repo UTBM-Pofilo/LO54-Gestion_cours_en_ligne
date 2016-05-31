@@ -22,21 +22,17 @@ public class CourseDao implements IDao{
     }
 
     @Override
-    public void removeEntity(final IEntity entity) {
-        DefaultDao.removeEntity(entity);
-    }
-
-    public IEntity getEntity(final String id) {
-        return DefaultDao.getEntity(id, Course.class.getCanonicalName());
-    }
-
-    @Override
     public List<IEntity> getEntities() {
         return DefaultDao.getEntities(Course.class.getCanonicalName());
     }
 
     @Override
-    public IEntity getEntity(final int id) {
-        throw new UnsupportedOperationException("Not supported.");
+    public void removeEntity(final Object id) {
+        DefaultDao.removeEntity((String) id, Course.class.getCanonicalName());
+    }
+
+    @Override
+    public IEntity getEntity(final Object id) {
+        return DefaultDao.getEntity((String) id, Course.class.getCanonicalName());
     }
 }

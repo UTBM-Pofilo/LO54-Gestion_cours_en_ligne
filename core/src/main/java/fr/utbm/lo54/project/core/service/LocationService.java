@@ -22,12 +22,12 @@ public class LocationService implements IService {
     }
 
     @Override
-    public void removeEntity(final IEntity entity) {
-        this.locationDao.removeEntity(entity);
+    public void removeEntity(final Object id) {
+        this.locationDao.removeEntity(id);
     }
 
     @Override
-    public IEntity getEntity(final int id) {
+    public IEntity getEntity(final Object id) {
         return this.locationDao.getEntity(id);
     }
 

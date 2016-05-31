@@ -23,12 +23,12 @@ public class ClientService implements IService {
     }
 
     @Override
-    public void removeEntity(final IEntity entity) {
-        this.clientDao.removeEntity(entity);
+    public void removeEntity(final Object id) {
+        this.clientDao.removeEntity(id);
     }
 
     @Override
-    public IEntity getEntity(final int id) {
+    public IEntity getEntity(final Object id) {
         return this.clientDao.getEntity(id);
     }
 

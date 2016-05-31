@@ -30,13 +30,13 @@ public class CourseSessionDao implements IDao {
     }
 
     @Override
-    public void removeEntity(final IEntity entity) {
-        DefaultDao.removeEntity(entity);
+    public void removeEntity(final Object id) {
+        DefaultDao.removeEntity((int) id, CourseSession.class.getCanonicalName());
     }
 
     @Override
-    public IEntity getEntity(final int id) {
-        return DefaultDao.getEntity(id, CourseSession.class.getCanonicalName());
+    public IEntity getEntity(final Object id) {
+        return DefaultDao.getEntity((int) id, CourseSession.class.getCanonicalName());
     }
 
     @Override

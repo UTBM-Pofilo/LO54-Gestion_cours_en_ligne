@@ -22,17 +22,17 @@ public class CourseService implements IService {
     }
 
     @Override
-    public void removeEntity(final IEntity entity) {
-        this.courseDao.removeEntity(entity);
-    }
-
-    @Override
-    public IEntity getEntity(final int id) {
-        return this.courseDao.getEntity(id);
+    public void removeEntity(final Object id) {
+        this.courseDao.removeEntity(id);
     }
 
     @Override
     public List<IEntity> getEntities() {
         return this.courseDao.getEntities();
+    }
+
+    @Override
+    public IEntity getEntity(final Object id) {
+        return this.courseDao.getEntity(id);
     }
 }

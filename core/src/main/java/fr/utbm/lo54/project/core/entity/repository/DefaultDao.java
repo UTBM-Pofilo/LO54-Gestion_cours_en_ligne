@@ -25,7 +25,7 @@ public class DefaultDao {
             session.persist(entity);
             session.getTransaction().commit();
         } catch(HibernateException e) {
-            LOGGER.error("Insertion of entity: " + e);
+            LOGGER.error("insertEntity: " + e);
         }
     }
 
@@ -39,11 +39,36 @@ public class DefaultDao {
     
     /**
      * To remove an entity into the database
-     * @param entity 
+     * @param id
+     * @param clazz
      */
-    public static void removeEntity(final IEntity entity) {
-        final Session session = HibernateUtil.getSession();
-        session.delete(entity);
+    public static void removeEntity(final int id, final String clazz) {
+        IEntity entity = DefaultDao.getEntity(id, clazz);
+        Session session = HibernateUtil.getSession();
+        try{
+           session.beginTransaction();
+           session.delete(entity);
+           session.getTransaction().commit();
+        } catch (HibernateException e) {
+            LOGGER.error("removeEntity: " + e);
+        } 
+    }
+    
+    /**
+     * To remove an entity into the database
+     * @param id
+     * @param clazz
+     */
+    public static void removeEntity(final String id, final String clazz) {
+        IEntity entity = DefaultDao.getEntity(id, clazz);
+        Session session = HibernateUtil.getSession();
+        try{
+           session.beginTransaction();
+           session.delete(entity);
+           session.getTransaction().commit();
+        } catch (HibernateException e) {
+            LOGGER.error("removeEntity: " + e);
+        } 
     }
     
     /**
@@ -60,7 +85,7 @@ public class DefaultDao {
             entity = (IEntity) session.get(clazz, id);
             session.getTransaction().commit();
         } catch (HibernateException e) {
-            System.err.println(e);
+            LOGGER.error("getEntity: " + e);
         } 
         return entity;
     }
@@ -80,7 +105,7 @@ public class DefaultDao {
             entity = (IEntity) session.get(clazz, id);
             session.getTransaction().commit();
         } catch (HibernateException e) {
-            System.err.println(e);
+            LOGGER.error("getEntity: " + e);
         } 
         return entity;
     }
@@ -97,7 +122,7 @@ public class DefaultDao {
             Query query = session.createQuery("from " + clazz);
             listEntities = query.list();
         }catch (HibernateException e) {
-            LOGGER.error("getEntities" + e);
+            LOGGER.error("getEntities: " + e);
         } 
         return listEntities;
     }

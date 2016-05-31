@@ -25,14 +25,14 @@ public class App0 {
         LocationDao locationDao = new LocationDao();
         Location location = new Location("Paris");
         //locationDao.insertEntity(location);
-        //LOGGER.info("location: " + locationDao.getEntity(2).toString());
+        LOGGER.info("location: " + locationDao.getEntity(2).toString());
 
         List<IEntity> listLocation = locationDao.getEntities();
 
         for (IEntity entity : listLocation) {
             Location location2 = (Location) entity;
-            LOGGER.info("--> " + location2.toString());
-            LOGGER.info("kkkkkkkkkkkkkkkkkkkkkkkk -> " + location2.getId());
+            //LOGGER.info("--> " + location2.toString());
+            //LOGGER.info("kkkkkkkkkkkkkkkkkkkkkkkk -> " + location2.getId());
         }
 
         /////////////////////////////////////////////////////////
@@ -42,10 +42,12 @@ public class App0 {
 
         LOGGER.info("course: " + courseDao.getEntity("LO54").toString());
 
+        // courseDao.removeEntity("OW00");
+        
         List<IEntity> listCourse = courseDao.getEntities();
         for (IEntity entity : listCourse) {
             Course course2 = (Course) entity;
-            LOGGER.info("--> " + course2.toString());
+            //LOGGER.info("--> " + course2.toString());
         }
 
         /////////////////////////////////////////////////////////
@@ -72,7 +74,7 @@ public class App0 {
         List<IEntity> listCourseSession = courseSessionDao.getEntities();
         for (IEntity entity : listCourseSession) {
             CourseSession courseSession3 = (CourseSession) entity;
-            LOGGER.info("|||--> " + courseSession3.toString());
+            //LOGGER.info("|||--> " + courseSession3.toString());
         }
         
         ///////////////////////////////////////////////////////////////
@@ -86,7 +88,7 @@ public class App0 {
         List<IEntity> listClient = clientDao.getEntities();
         for (IEntity entity : listClient) {
             Client client2 = (Client) entity;
-            LOGGER.info("°°°°°°--> " + client2.toString());
+            //LOGGER.info("°°°°°°--> " + client2.toString());
         }
         
         ///////////////////////////////////////////////////////////////
@@ -95,11 +97,11 @@ public class App0 {
         List<IEntity> listFilter = courseSessionDao.getEntitiesByLocation("Les Auxons");
         for (IEntity entity : listFilter) {
             CourseSession course3 = (CourseSession) entity;
-            LOGGER.info("€€€€€€€€€€€€€€€€€ --> " + course3.toString());
+            //LOGGER.info("€€€€€€€€€€€€€€€€€ --> " + course3.toString());
         }
         
         
-        
+        //clientDao.removeEntity(2);
         
         LOGGER.info("\n\n\n\nOK");
 

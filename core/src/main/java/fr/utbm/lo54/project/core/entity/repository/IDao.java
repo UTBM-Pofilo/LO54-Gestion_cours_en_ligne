@@ -3,7 +3,7 @@ package fr.utbm.lo54.project.core.entity.repository;
 import fr.utbm.lo54.project.core.entity.IEntity;
 import java.util.List;
 
-public interface IDao {
+public interface IDao<T> {
     
     /**
      * To insert an entity into the database
@@ -19,16 +19,16 @@ public interface IDao {
     
     /**
      * To remove an entity into the database
-     * @param entity 
+     * @param id 
      */
-    void removeEntity(final IEntity entity);
+    void removeEntity(final T id);
     
     /**
      * To get an entity from an id
      * @param id
      * @return 
      */
-    IEntity getEntity(final int id);
+    IEntity getEntity(final T id);
 
     
     /**
