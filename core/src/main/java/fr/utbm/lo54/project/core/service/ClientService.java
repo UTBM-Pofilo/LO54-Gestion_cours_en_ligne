@@ -1,7 +1,7 @@
 package fr.utbm.lo54.project.core.service;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
-import fr.utbm.lo54.project.core.entity.repository.ClientDao;
+import fr.utbm.lo54.project.core.repository.ClientDao;
 import java.util.List;
 
 public class ClientService implements IService {

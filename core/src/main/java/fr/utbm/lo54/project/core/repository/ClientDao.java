@@ -1,11 +1,11 @@
-package fr.utbm.lo54.project.core.entity.repository;
+package fr.utbm.lo54.project.core.repository;
 
+import fr.utbm.lo54.project.core.entity.Client;
 import fr.utbm.lo54.project.core.entity.IEntity;
-import fr.utbm.lo54.project.core.entity.Location;
 import java.util.List;
 
-public class LocationDao implements IDao {
-
+public class ClientDao implements IDao{
+    
     @Override
     public void insertEntity(final IEntity entity) {
         DefaultDao.insertEntity(entity);
@@ -13,21 +13,21 @@ public class LocationDao implements IDao {
 
     @Override
     public void updateEntity(final Object id, final IEntity entity) {
-        DefaultDao.updateEntity((int) id, Location.class.getCanonicalName(), entity);
+        DefaultDao.updateEntity((int) id, Client.class.getCanonicalName(), entity);
     }
 
     @Override
     public void removeEntity(final Object id) {
-        DefaultDao.removeEntity((int) id, LocationDao.class.getCanonicalName());
+        DefaultDao.removeEntity((int) id, Client.class.getCanonicalName());
     }
 
     @Override
     public IEntity getEntity(final Object id) {
-        return DefaultDao.getEntity((int) id, Location.class.getCanonicalName());
+        return DefaultDao.getEntity((int) id, Client.class.getCanonicalName());
     }
 
     @Override
     public List<IEntity> getEntities() {
-        return DefaultDao.getEntities(Location.class.getCanonicalName());
+        return DefaultDao.getEntities(Client.class.getCanonicalName());
     }
 }

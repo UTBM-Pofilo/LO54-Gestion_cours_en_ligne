@@ -1,7 +1,7 @@
 package fr.utbm.lo54.project.core.service;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
-import fr.utbm.lo54.project.core.entity.repository.CourseDao;
+import fr.utbm.lo54.project.core.repository.CourseDao;
 import java.util.List;
 
 public class CourseService implements IService {

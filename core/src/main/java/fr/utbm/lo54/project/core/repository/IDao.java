@@ -1,4 +1,4 @@
-package fr.utbm.lo54.project.core.entity.repository;
+package fr.utbm.lo54.project.core.repository;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
 import java.util.List;

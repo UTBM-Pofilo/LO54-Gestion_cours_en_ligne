@@ -1,4 +1,4 @@
-package fr.utbm.lo54.project.core.entity.repository;
+package fr.utbm.lo54.project.core.repository;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
 import fr.utbm.lo54.project.core.util.HibernateUtil;
@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DefaultDao<T> {
+public class DefaultDao {
     
     private final static Logger LOGGER = LoggerFactory
 			.getLogger(DefaultDao.class);

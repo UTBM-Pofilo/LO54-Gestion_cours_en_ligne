@@ -1,7 +1,7 @@
 package fr.utbm.lo54.project.core.service;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
-import fr.utbm.lo54.project.core.entity.repository.LocationDao;
+import fr.utbm.lo54.project.core.repository.LocationDao;
 import java.util.List;
 
 public class LocationService implements IService {
