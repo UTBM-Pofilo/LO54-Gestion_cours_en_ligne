@@ -5,8 +5,10 @@
  */
 package fr.utbm.lo54.project.webapp;
 
-import fr.utbm.lo54.project.core.entity.Course;
-import fr.utbm.lo54.project.core.service.CourseService;
+import fr.utbm.lo54.project.core.entity.Client;
+import fr.utbm.lo54.project.core.entity.CourseSession;
+import fr.utbm.lo54.project.core.service.ClientService;
+import fr.utbm.lo54.project.core.service.CourseSessionService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Vincent
  */
-@WebServlet(name = "AddCourseServlet", urlPatterns = {"/AddCourseServlet"})
-public class AddCourseServlet extends HttpServlet {
+@WebServlet(name = "InscriptionServlet", urlPatterns = {"/InscriptionServlet"})
+public class InscriptionServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,25 +36,40 @@ public class AddCourseServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        int idCourseSession = Integer.parseInt(request.getParameter("idCourseSession"));
+        CourseSessionService courseSessionService = new CourseSessionService();
+        CourseSession courseSession = (CourseSession) courseSessionService.getEntity(idCourseSession);
+        
+        String name = request.getParameter("name");
+        String firstName = request.getParameter("firstName");
+        String address = request.getParameter("address");
+        String phoneNumber = request.getParameter("phoneNumber");
+        String mail = request.getParameter("mail");
+        
+        ClientService clientService = new ClientService();
+        Client client = new Client(name, firstName, address, name, mail, courseSession);
+        
+        
+        clientService.storeEntity(client);
+        
+        
+                
+                
+                
+                
+                
+                
+                
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String title = request.getParameter("title");
-            String code = request.getParameter("code");
-            
-            Course course = new Course(code, title);
-            CourseService courseService = new CourseService();
-            courseService.storeEntity(course);
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<link rel=\"stylesheet\" href=\"/webbapp/css/bootstrap.min.css\"/>");
-            out.println("<script src=\"/webapp/js/bootstrap.min.js\"></script>");      
-            out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");     
-            out.println("<title>Servlet AddMovieServlet</title>");            
+            out.println("<title>Servlet InscriptionServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<p>Title: " + title + "</p>");
-            out.println("<p>Code: " + code + "</p>");
+            out.println("<h1>If you see that, it seems to be good.</h1>");
             out.println("</body>");
             out.println("</html>");
         }

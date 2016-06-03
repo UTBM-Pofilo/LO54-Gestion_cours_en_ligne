@@ -5,10 +5,14 @@
  */
 package fr.utbm.lo54.project.webapp;
 
-import fr.utbm.lo54.project.core.entity.Course;
-import fr.utbm.lo54.project.core.service.CourseService;
+import fr.utbm.lo54.project.core.entity.CourseSession;
+import fr.utbm.lo54.project.core.entity.IEntity;
+import fr.utbm.lo54.project.core.service.CourseSessionService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Vincent
  */
-@WebServlet(name = "AddCourseServlet", urlPatterns = {"/AddCourseServlet"})
-public class AddCourseServlet extends HttpServlet {
+@WebServlet(name = "FilterCourseDate", urlPatterns = {"/FilterCourseDate"})
+public class FilterCourseDateServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,27 +38,53 @@ public class AddCourseServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        int year = Integer.parseInt(request.getParameter("year"));
+        int month = Integer.parseInt(request.getParameter("month"));
+        int day = Integer.parseInt(request.getParameter("day"));
+        
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month - 1);
+        calendar.set(Calendar.DAY_OF_MONTH, day);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+
+        Timestamp startDate = new Timestamp(calendar.getTimeInMillis());
+        calendar.set(Calendar.DAY_OF_MONTH, day + 1);
+        Timestamp endDate = new Timestamp(calendar.getTimeInMillis());
+        
+        CourseSessionService courseSessionService = new CourseSessionService();
+        List<IEntity> listCourses = courseSessionService.getEntitiesByTimeStamp(startDate, endDate);
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String title = request.getParameter("title");
-            String code = request.getParameter("code");
-            
-            Course course = new Course(code, title);
-            CourseService courseService = new CourseService();
-            courseService.storeEntity(course);
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<link rel=\"stylesheet\" href=\"/webbapp/css/bootstrap.min.css\"/>");
+            out.println("<link rel=\"stylesheet\" href=\"/webapp/css/bootstrap.min.css\"/>");
             out.println("<script src=\"/webapp/js/bootstrap.min.js\"></script>");      
-            out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");     
-            out.println("<title>Servlet AddMovieServlet</title>");            
+            out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
+            out.println("<title>Servlet ListCoursesServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<p>Title: " + title + "</p>");
-            out.println("<p>Code: " + code + "</p>");
-            out.println("</body>");
+            out.println("<h1>There is " + listCourses.size() + " courses with this filter</h1><ul>");
+            
+            for(IEntity entity : listCourses) {
+                CourseSession courseSession = (CourseSession) entity;
+                out.println("<li>" + courseSession.getCourse().getCode() + " | " + courseSession.getCourse().getTitle());
+                out.println(" | Location: " + courseSession.getLocation().getCity());
+                out.println(" | Start: " + courseSession.getStartDate());
+                out.println(" | <a href=\"inscriptionForm?idCourseSession=" + courseSession.getId() + "\">INSCRIPTION</a>");
+                out.println("</li>");
+            }
+            out.println("</ul></body>");
             out.println("</html>");
+            
+            //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/index.jsp");
+            //dispatcher.forward(request,response);
         }
     }
 

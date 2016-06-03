@@ -24,6 +24,54 @@
         <servlet-name>addCourse</servlet-name>
         <url-pattern>/addCourse</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>filterCourseName</servlet-name>
+        <servlet-class>fr.utbm.lo54.project.webapp.FilterCourseNameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>filterCourseName</servlet-name>
+        <url-pattern>/filterCourseName</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>filterCourseDate</servlet-name>
+        <servlet-class>fr.utbm.lo54.project.webapp.FilterCourseDateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>filterCourseDate</servlet-name>
+        <url-pattern>/filterCourseDate</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>filterServlet</servlet-name>
+        <servlet-class>fr.utbm.lo54.project.webapp.FilterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>filterServlet</servlet-name>
+        <url-pattern>/filterCourses</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>filterLocation</servlet-name>
+        <servlet-class>fr.utbm.lo54.project.webapp.FilterLocationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>filterLocation</servlet-name>
+        <url-pattern>/filterLocation</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>inscriptionForm</servlet-name>
+        <servlet-class>fr.utbm.lo54.project.webapp.InscriptionFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>inscriptionForm</servlet-name>
+        <url-pattern>/inscriptionForm</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>inscription</servlet-name>
+        <servlet-class>fr.utbm.lo54.project.webapp.InscriptionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>inscription</servlet-name>
+        <url-pattern>/inscription</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

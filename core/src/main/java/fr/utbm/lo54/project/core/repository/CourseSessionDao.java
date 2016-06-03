@@ -101,6 +101,21 @@ public class CourseSessionDao implements IDao {
         }catch (HibernateException e) {
             LOGGER.error("getEntities" + e);
         } 
-        return listEntities;
+        
+        List<IEntity> listEntities2 = null;
+        
+        if (listEntities != null) {
+            for(IEntity entity : listEntities) {
+                Course course = (Course) entity;
+                try {
+                    Query query = session.createQuery("from " + CourseSession.class.getCanonicalName() + " where course like :code");
+                    query.setParameter("code", course);
+                    listEntities2 = query.list();
+                }catch (HibernateException e) {
+                    LOGGER.error("getEntities" + e);
+                } 
+            }
+        }
+        return listEntities2;
     }
 }

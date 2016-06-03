@@ -9,6 +9,7 @@ import fr.utbm.lo54.project.core.repository.ClientDao;
 import fr.utbm.lo54.project.core.repository.CourseDao;
 import fr.utbm.lo54.project.core.repository.CourseSessionDao;
 import fr.utbm.lo54.project.core.repository.LocationDao;
+import fr.utbm.lo54.project.core.service.CourseSessionService;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.List;
@@ -94,12 +95,21 @@ public class App0 {
         ///////////////////////////////////////////////////////////////
         
         
-        List<IEntity> listFilter = courseSessionDao.getEntitiesByLocation("Les Auxons");
+        List<IEntity> listFilter = courseSessionDao.getEntitiesByTitle("Java");
         for (IEntity entity : listFilter) {
             CourseSession course3 = (CourseSession) entity;
-            //LOGGER.info("€€€€€€€€€€€€€€€€€ --> " + course3.toString());
+            LOGGER.info("€€€€€€€€€€€€€€€€€ --> " + course3.toString());
         }
         
+        
+        
+        
+        
+        
+        CourseSessionService courseSessionService = new CourseSessionService();
+        CourseSession courseSession7 = (CourseSession) courseSessionService.getEntity(1);
+        
+        LOGGER.info("############################### ---> " + courseSession7.toString());
         
         //clientDao.removeEntity(2);
         
