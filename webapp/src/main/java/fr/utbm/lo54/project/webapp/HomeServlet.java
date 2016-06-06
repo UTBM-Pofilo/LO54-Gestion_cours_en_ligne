@@ -6,7 +6,6 @@
 package fr.utbm.lo54.project.webapp;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,23 +25,8 @@ public class HomeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");       
-            out.println("<link rel=\"stylesheet\" href=\"/webapp/css/bootstrap.min.css\"/>");
-            out.println("<script src=\"/webapp/js/bootstrap.min.js\"></script>");      
-            out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
-            out.println("<title>Course Online | Home</title>"); 
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Welcome to the Online Courses</h1>");
-            out.println("<ul><li><a href=\"/webapp/filterCourses\">List of courses</a><br></li>");
-            out.println("<li><a href=\"/webapp/jsp/addCourseForm.jsp\">Add a course</a></li></ul>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        
+        request.getRequestDispatcher("/jsp/home.jsp").forward(request, response);        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
