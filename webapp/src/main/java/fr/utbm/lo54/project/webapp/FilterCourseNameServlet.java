@@ -1,10 +1,8 @@
 package fr.utbm.lo54.project.webapp;
 
-import fr.utbm.lo54.project.core.entity.CourseSession;
 import fr.utbm.lo54.project.core.entity.IEntity;
 import fr.utbm.lo54.project.core.service.CourseSessionService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,37 +24,15 @@ public class FilterCourseNameServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String name = request.getParameter("name");
         CourseSessionService courseSessionService = new CourseSessionService();
-        List<IEntity> listCourses = courseSessionService.getEntitiesByTitle(name);
+        List<IEntity> listCoursesSession = courseSessionService.getEntitiesByTitle(request.getParameter("name"));
         
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<link rel=\"stylesheet\" href=\"/webapp/css/bootstrap.min.css\"/>");
-            out.println("<script src=\"/webapp/js/bootstrap.min.js\"></script>");      
-            out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
-            out.println("<title>Servlet ListCoursesServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>There is " + listCourses.size() + " courses with the filter \"" + name + "\"</h1><ul>");
-            
-            for(IEntity entity : listCourses) {
-                CourseSession courseSession = (CourseSession) entity;
-                out.println("<li>" + courseSession.getCourse().getCode() + " | " + courseSession.getCourse().getTitle());
-                out.println(" | Location: " + courseSession.getLocation().getCity());
-                out.println(" | Start: " + courseSession.getStartDate());
-                out.println(" | <a href=\"inscriptionForm?idCourseSession=" + courseSession.getId() + "\">INSCRIPTION</a>");
-                out.println("</li>");
-            }
-            out.println("</ul></body>");
-            out.println("</html>");
-            
-            //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/index.jsp");
-            //dispatcher.forward(request,response);
-        }
+        request.setAttribute("listCoursesSession", listCoursesSession);
+        request.setAttribute("const", "the filter \"" + request.getParameter("name") + "\"");
+        
+        request.getRequestDispatcher("/jsp/filterDefault.jsp").forward(request, response);
+        
+      
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
