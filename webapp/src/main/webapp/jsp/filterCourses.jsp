@@ -1,3 +1,4 @@
+<%@page import="fr.utbm.lo54.project.webapp.util.Properties"%>
 <%@page import="fr.utbm.lo54.project.core.entity.Location"%>
 <%@page import="java.util.List"%>
 <%@page import="fr.utbm.lo54.project.core.entity.IEntity"%>
@@ -36,7 +37,7 @@
                     <form method="POST" action=filterLocation>
                         <select name="location" size="1">
                         <%
-                            List<IEntity> listLocations = (List<IEntity>) request.getAttribute("listLocations");
+                            List<IEntity> listLocations = (List<IEntity>) request.getAttribute(Properties.ATTRIBUTE_LIST_LOCATION);
                             for(IEntity entity : listLocations) {
                                 Location location = (Location) entity;
                                 out.println("<option>" + location.getCity());

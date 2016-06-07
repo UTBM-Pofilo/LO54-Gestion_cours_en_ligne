@@ -2,6 +2,7 @@ package fr.utbm.lo54.project.webapp;
 
 import fr.utbm.lo54.project.core.entity.CourseSession;
 import fr.utbm.lo54.project.core.service.CourseSessionService;
+import fr.utbm.lo54.project.webapp.util.Properties;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,16 +20,16 @@ public class InscriptionFormServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType(Properties.CONTENT_TYPE);
         
         CourseSessionService courseSessionService = new CourseSessionService();
-        CourseSession courseSession = (CourseSession) courseSessionService.getEntity(Integer.parseInt(request.getParameter("idCourseSession")));
+        CourseSession courseSession = (CourseSession) courseSessionService.getEntity(Integer.parseInt(request.getParameter(Properties.FILTER_ID_COURSE_SESSION)));
         
-        request.setAttribute("courseSession", courseSession);
+        request.setAttribute(Properties.ATTRIBUTE_COURSE_SESSION, courseSession);
         
-        request.getRequestDispatcher("/jsp/inscriptionForm.jsp").forward(request, response);
+        request.getRequestDispatcher(Properties.PATH_INSCRIPTION_FORM).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

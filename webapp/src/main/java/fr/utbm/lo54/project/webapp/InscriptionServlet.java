@@ -1,26 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.utbm.lo54.project.webapp;
 
 import fr.utbm.lo54.project.core.entity.Client;
 import fr.utbm.lo54.project.core.entity.CourseSession;
 import fr.utbm.lo54.project.core.service.ClientService;
 import fr.utbm.lo54.project.core.service.CourseSessionService;
+import fr.utbm.lo54.project.webapp.util.Properties;
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Vincent
- */
-@WebServlet(name = "InscriptionServlet", urlPatterns = {"/InscriptionServlet"})
 public class InscriptionServlet extends HttpServlet {
 
     /**
@@ -32,22 +22,22 @@ public class InscriptionServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType(Properties.CONTENT_TYPE);
         
-        int idCourseSession = Integer.parseInt(request.getParameter("idCourseSession"));
+        int idCourseSession = Integer.parseInt(request.getParameter(Properties.FILTER_ID_COURSE_SESSION));
         CourseSessionService courseSessionService = new CourseSessionService();
         CourseSession courseSession = (CourseSession) courseSessionService.getEntity(idCourseSession);
         
-        String name = request.getParameter("name");
-        String firstName = request.getParameter("firstName");
-        String address = request.getParameter("address");
-        String phoneNumber = request.getParameter("phoneNumber");
-        String mail = request.getParameter("mail");
+        String name = request.getParameter(Properties.CLIENT_NAME);
+        String firstName = request.getParameter(Properties.CLIENT_FIRST_NAME);
+        String address = request.getParameter(Properties.CLIENT_ADDRESS);
+        String phoneNumber = request.getParameter(Properties.CLIENT_PHONE_NUMBER);
+        String mail = request.getParameter(Properties.CLIENT_MAIL);
         
         ClientService clientService = new ClientService();
-        Client client = new Client(name, firstName, address, name, mail, courseSession);
+        Client client = new Client(name, firstName, address, phoneNumber, mail, courseSession);
         
         clientService.storeEntity(client);
         
@@ -55,13 +45,13 @@ public class InscriptionServlet extends HttpServlet {
         
         String result = "";
         if (clientTest != null) {
-            result += "OK";
+            result += Properties.TRUE;
         } else {
-            result += "FAIL";
+            result += Properties.FALSE;
         }     
                 
-        request.setAttribute("result", result);
-        request.getRequestDispatcher("/jsp/inscription.jsp").forward(request, response);
+        request.setAttribute(Properties.ATTRIBUTE_RESULT, result);
+        request.getRequestDispatcher(Properties.PATH_INSCRIPTION).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

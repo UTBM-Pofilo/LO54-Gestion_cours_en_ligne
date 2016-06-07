@@ -5,6 +5,7 @@
  */
 package fr.utbm.lo54.project.webapp;
 
+import fr.utbm.lo54.project.webapp.util.Properties;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,11 +23,11 @@ public class HomeServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType(Properties.CONTENT_TYPE);
         
-        request.getRequestDispatcher("/jsp/home.jsp").forward(request, response);        
+        request.getRequestDispatcher(Properties.PATH_HOME).forward(request, response);        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

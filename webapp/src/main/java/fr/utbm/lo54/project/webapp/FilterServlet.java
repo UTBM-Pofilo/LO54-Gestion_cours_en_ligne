@@ -2,6 +2,7 @@ package fr.utbm.lo54.project.webapp;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
 import fr.utbm.lo54.project.core.service.LocationService;
+import fr.utbm.lo54.project.webapp.util.Properties;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -20,16 +21,16 @@ public class FilterServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType(Properties.CONTENT_TYPE);
         
         LocationService locationService = new LocationService();
         List<IEntity> listLocations = locationService.getEntities();
         
-        request.setAttribute("listLocations", listLocations);
+        request.setAttribute(Properties.ATTRIBUTE_LIST_LOCATION, listLocations);
         
-        request.getRequestDispatcher("/jsp/filterCourses.jsp").forward(request, response);
+        request.getRequestDispatcher(Properties.PATH_FILTER_COURSES).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -1,3 +1,4 @@
+<%@page import="fr.utbm.lo54.project.webapp.util.Properties"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,8 +11,8 @@
     <body>
         <h1>Result of the inscription</h1>
         <%
-            String result = (String) request.getAttribute("result");
-            if(result.equals("OK")) {
+            String result = (String) request.getAttribute(Properties.ATTRIBUTE_RESULT);
+            if(result.equals("true")) {
                 out.println("Inscription Successfully done");
             } else {
                 out.println("Somtething goes wrong during your inscription");

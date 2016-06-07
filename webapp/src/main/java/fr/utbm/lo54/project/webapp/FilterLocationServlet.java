@@ -2,6 +2,7 @@ package fr.utbm.lo54.project.webapp;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
 import fr.utbm.lo54.project.core.service.CourseSessionService;
+import fr.utbm.lo54.project.webapp.util.Properties;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -20,17 +21,17 @@ public class FilterLocationServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType(Properties.CONTENT_TYPE);
         
         CourseSessionService courseSessionService = new CourseSessionService();
-        List<IEntity> listCoursesSession = courseSessionService.getEntitiesByLocation(request.getParameter("location"));
+        List<IEntity> listCoursesSession = courseSessionService.getEntitiesByLocation(request.getParameter(Properties.FILTER_LOCATION));
 
-        request.setAttribute("const", "There is " + listCoursesSession.size() + " courses with the filter \"" + request.getParameter("location") + "\"");
-        request.setAttribute("listCoursesSession", listCoursesSession);
-        
-        request.getRequestDispatcher("/jsp/filterDefault.jsp").forward(request, response);
+        request.setAttribute(Properties.ATTRIBUTE_LIST_COURSES_SESSION, listCoursesSession);
+        request.setAttribute(Properties.ATTRIBUTE_SENTENCE, "There is " + listCoursesSession.size() + " courses with the filter \"" + request.getParameter(Properties.FILTER_LOCATION) + "\"");
+       
+        request.getRequestDispatcher(Properties.PATH_FILTER_DEFAULT).forward(request, response);
         
     }
 

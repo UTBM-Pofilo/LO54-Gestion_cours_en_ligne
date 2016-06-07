@@ -1,7 +1,8 @@
+<%@page import="fr.utbm.lo54.project.webapp.util.Properties"%>
 <%@page import="fr.utbm.lo54.project.core.entity.CourseSession"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    CourseSession courseSession = (CourseSession) request.getAttribute("courseSession");
+    CourseSession courseSession = (CourseSession) request.getAttribute(Properties.ATTRIBUTE_COURSE_SESSION);
 %>  
 <!DOCTYPE html>
 <html>
@@ -18,13 +19,13 @@
             out.print(" | Location: " + courseSession.getLocation().getCity());
             out.print(" | Start: " + courseSession.getStartDate());  
         %>
-        <form method="POST" action="inscription?idCourseSession=<%out.print(courseSession.getId());%>">
+        <form method="POST" action="inscription?<%out.print(Properties.FILTER_ID_COURSE_SESSION); %>=<%out.print(courseSession.getId());%>">
             <ul>
-                <li>Name: <input type="text" name="name"><br></li>
-                <li>First Name: <input type="text" name="firstName"><br></li>
-                <li>Address: <input type="text" name="address"><br></li>
-                <li>Phone number: <input type="text" name="phoneNumber"><br></li>
-                <li>Mail: <input type="text" name="mail"><br></li>
+                <li>Name: <input type="text" name="<%out.print(Properties.CLIENT_NAME);%>"><br></li>
+                <li>First Name: <input type="text" name="<%out.print(Properties.CLIENT_FIRST_NAME);%>"><br></li>
+                <li>Address: <input type="text" name="<%out.print(Properties.CLIENT_ADDRESS);%>"><br></li>
+                <li>Phone number: <input type="text" name="<%out.print(Properties.CLIENT_PHONE_NUMBER);%>"><br></li>
+                <li>Mail: <input type="text" name="<%out.print(Properties.CLIENT_MAIL);%>"><br></li>
                 <li><input type="submit" value="Add Course" /></li>
             </ul>
         </form>

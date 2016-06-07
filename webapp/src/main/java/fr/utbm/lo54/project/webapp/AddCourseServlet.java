@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.utbm.lo54.project.webapp;
 
 import fr.utbm.lo54.project.core.entity.Course;
@@ -10,16 +5,10 @@ import fr.utbm.lo54.project.core.service.CourseService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Vincent
- */
-@WebServlet(name = "AddCourseServlet", urlPatterns = {"/AddCourseServlet"})
 public class AddCourseServlet extends HttpServlet {
 
     /**
@@ -31,7 +20,7 @@ public class AddCourseServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {

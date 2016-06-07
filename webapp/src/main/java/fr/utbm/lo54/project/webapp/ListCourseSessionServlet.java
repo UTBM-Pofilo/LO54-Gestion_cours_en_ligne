@@ -1,25 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.utbm.lo54.project.webapp;
 
 import fr.utbm.lo54.project.core.entity.IEntity;
 import fr.utbm.lo54.project.core.service.CourseSessionService;
+import fr.utbm.lo54.project.webapp.util.Properties;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Vincent
- */
-@WebServlet(name = "ListCoursesServlet", urlPatterns = {"/ListCoursesServlet"})
 public class ListCourseSessionServlet extends HttpServlet {
 
     /**
@@ -31,17 +21,17 @@ public class ListCourseSessionServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType(Properties.CONTENT_TYPE);
         
         CourseSessionService courseSessionService = new CourseSessionService();
         List<IEntity> listCoursesSession = courseSessionService.getEntities();
         
-        request.setAttribute("listCoursesSession", listCoursesSession);
-        request.setAttribute("const", "There is " + listCoursesSession.size() + " courses in total");
+        request.setAttribute(Properties.ATTRIBUTE_LIST_COURSES_SESSION, listCoursesSession);
+        request.setAttribute(Properties.ATTRIBUTE_SENTENCE, "There is " + listCoursesSession.size() + " courses in total");
         
-        request.getRequestDispatcher("/jsp/filterDefault.jsp").forward(request, response);
+        request.getRequestDispatcher(Properties.PATH_FILTER_DEFAULT).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
