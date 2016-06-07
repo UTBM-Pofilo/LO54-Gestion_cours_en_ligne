@@ -26,8 +26,8 @@ public class FilterLocationServlet extends HttpServlet {
         
         CourseSessionService courseSessionService = new CourseSessionService();
         List<IEntity> listCoursesSession = courseSessionService.getEntitiesByLocation(request.getParameter("location"));
-        
-        request.setAttribute("const", "the filter \"" + request.getParameter("location") + "\"");
+
+        request.setAttribute("const", "There is " + listCoursesSession.size() + " courses with the filter \"" + request.getParameter("location") + "\"");
         request.setAttribute("listCoursesSession", listCoursesSession);
         
         request.getRequestDispatcher("/jsp/filterDefault.jsp").forward(request, response);

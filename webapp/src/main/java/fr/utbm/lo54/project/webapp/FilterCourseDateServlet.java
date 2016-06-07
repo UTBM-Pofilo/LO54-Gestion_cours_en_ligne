@@ -58,7 +58,7 @@ public class FilterCourseDateServlet extends HttpServlet {
         List<IEntity> listCoursesSession = courseSessionService.getEntitiesByTimeStamp(startDate, endDate);
         
         request.setAttribute("listCoursesSession", listCoursesSession);
-        request.setAttribute("const", "this filter");
+        request.setAttribute("const", "There is " + listCoursesSession.size() + " courses with this filter");
         
         request.getRequestDispatcher("/jsp/filterDefault.jsp").forward(request, response);
     }

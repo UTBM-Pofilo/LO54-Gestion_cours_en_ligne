@@ -3,7 +3,6 @@ package fr.utbm.lo54.project.webapp;
 import fr.utbm.lo54.project.core.entity.CourseSession;
 import fr.utbm.lo54.project.core.service.CourseSessionService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,39 +23,12 @@ public class InscriptionFormServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        int idCourseSession = Integer.parseInt(request.getParameter("idCourseSession"));
         CourseSessionService courseSessionService = new CourseSessionService();
-        CourseSession courseSession = (CourseSession) courseSessionService.getEntity(idCourseSession);
+        CourseSession courseSession = (CourseSession) courseSessionService.getEntity(Integer.parseInt(request.getParameter("idCourseSession")));
         
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<link rel=\"stylesheet\" href=\"/webapp/css/bootstrap.min.css\"/>");
-            out.println("<script src=\"/webapp/js/bootstrap.min.js\"></script>");      
-            out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");     
-            out.println("<title>Servlet AddMovieServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            
-            out.println("<h1>Inscription at</h1>");
-            out.println(courseSession.getCourse().getCode() + " | " + courseSession.getCourse().getTitle());
-            out.println(" | Location: " + courseSession.getLocation().getCity());
-            out.println(" | Start: " + courseSession.getStartDate());
-
-            out.println("<form method=\"POST\" action=\"inscription?idCourseSession=" + courseSession.getId() + "\">\n" +
-"            Name: <input type=\"text\" name=\"name\"><br>\n" +
-"            First Name: <input type=\"text\" name=\"firstName\"><br>\n" +
-"            Address: <input type=\"text\" name=\"address\"><br>\n" +
-"            Phone number: <input type=\"text\" name=\"phoneNumber\"><br>\n" +
-"            Mail: <input type=\"text\" name=\"mail\"><br>\n" +
-"            <input type=\"submit\" value=\"Add Course\" />\n" +
-"        </form>");
-
-            out.println("</body>");
-            out.println("</html>");
-        }
+        request.setAttribute("courseSession", courseSession);
+        
+        request.getRequestDispatcher("/jsp/inscriptionForm.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

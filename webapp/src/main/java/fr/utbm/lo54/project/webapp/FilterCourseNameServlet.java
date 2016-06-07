@@ -28,7 +28,7 @@ public class FilterCourseNameServlet extends HttpServlet {
         List<IEntity> listCoursesSession = courseSessionService.getEntitiesByTitle(request.getParameter("name"));
         
         request.setAttribute("listCoursesSession", listCoursesSession);
-        request.setAttribute("const", "the filter \"" + request.getParameter("name") + "\"");
+        request.setAttribute("const", "There is " + listCoursesSession.size() + " courses with the filter \"" + request.getParameter("name") + "\"");
         
         request.getRequestDispatcher("/jsp/filterDefault.jsp").forward(request, response);
         

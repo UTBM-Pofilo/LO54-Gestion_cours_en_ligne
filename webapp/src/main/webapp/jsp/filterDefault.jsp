@@ -15,7 +15,7 @@
     </head>
     <body>
         <%
-          out.println("<h1>There is " + listCoursesSession.size() + " courses with " + (String) request.getAttribute("const") + "</h1>");
+          out.println("<h1>" + (String) request.getAttribute("const") + "</h1>");
         %>
         <ul>
             <%

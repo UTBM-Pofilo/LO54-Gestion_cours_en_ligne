@@ -10,7 +10,6 @@ import fr.utbm.lo54.project.core.entity.CourseSession;
 import fr.utbm.lo54.project.core.service.ClientService;
 import fr.utbm.lo54.project.core.service.CourseSessionService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,29 +49,19 @@ public class InscriptionServlet extends HttpServlet {
         ClientService clientService = new ClientService();
         Client client = new Client(name, firstName, address, name, mail, courseSession);
         
-        
         clientService.storeEntity(client);
         
+        Client clientTest = (Client) clientService.getEntity(client.getId());
         
+        String result = "";
+        if (clientTest != null) {
+            result += "OK";
+        } else {
+            result += "FAIL";
+        }     
                 
-                
-                
-                
-                
-                
-                
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet InscriptionServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>If you see that, it seems to be good.</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        request.setAttribute("result", result);
+        request.getRequestDispatcher("/jsp/inscription.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
