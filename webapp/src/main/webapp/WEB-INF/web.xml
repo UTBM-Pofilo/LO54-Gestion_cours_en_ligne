@@ -72,6 +72,8 @@
         <servlet-name>inscription</servlet-name>
         <url-pattern>/inscription</url-pattern>
     </servlet-mapping>
+    
+    
     <session-config>
         <session-timeout>
             30

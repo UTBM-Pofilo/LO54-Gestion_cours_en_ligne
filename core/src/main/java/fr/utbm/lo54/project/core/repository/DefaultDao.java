@@ -113,7 +113,6 @@ public class DefaultDao {
         IEntity entity = null;
         try {
             session.beginTransaction();
-            // entity = (IEntity) session.get(Client.class, id);
             entity = (IEntity) session.get(clazz, id);
             session.getTransaction().commit();
         } catch (HibernateException e) {
