@@ -13,6 +13,7 @@
         <title>Course Online | Inscription</title>
     </head>
     <body>
+        <h1><a href="/webapp">HOME</a></h1>
         <h1>Inscription at</h1>
         <%
             out.print(courseSession.getCourse().getCode() + " | " + courseSession.getCourse().getTitle());

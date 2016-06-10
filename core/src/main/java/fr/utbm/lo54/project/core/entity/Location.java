@@ -2,7 +2,7 @@ package fr.utbm.lo54.project.core.entity;
 
 import java.io.Serializable;
 
-public class Location  implements Serializable, IEntity {
+public class Location implements Serializable, IEntity {
 
     private int id;
     private String city;

@@ -8,10 +8,11 @@
         <title>Course Online | Home</title>
     </head>
     <body>
+        <h1><a href="/webapp">HOME</a></h1>
         <h1>Welcome to the Online Courses</h1>
         <ul>
             <li><a href="/webapp/filterCourses">List of courses</a><br></li>
-            <li><a href="/webapp/jsp/addCourseForm.jsp">Add a course</a></li>
+            <!--<li><a href="/webapp/jsp/addCourseForm.jsp">Add a course</a></li>-->
         </ul>
     </body>
 </html>

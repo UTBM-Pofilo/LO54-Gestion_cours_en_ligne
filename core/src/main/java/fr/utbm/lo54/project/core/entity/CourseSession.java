@@ -3,7 +3,7 @@ package fr.utbm.lo54.project.core.entity;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class CourseSession  implements Serializable, IEntity {
+public class CourseSession implements Serializable, IEntity {
 
      private int id;
      private Timestamp startDate;

@@ -15,6 +15,7 @@
         <title>Course Online | Filter Courses</title>
     </head>
     <body>
+        <h1><a href="/webapp">HOME</a></h1>
         <%
           out.println("<h1>" + (String) request.getAttribute(Properties.ATTRIBUTE_SENTENCE) + "</h1>");
         %>

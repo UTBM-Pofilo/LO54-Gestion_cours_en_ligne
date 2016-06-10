@@ -2,7 +2,7 @@ package fr.utbm.lo54.project.core.entity;
 
 import java.io.Serializable;
 
-public class Course  implements Serializable, IEntity {
+public class Course implements Serializable, IEntity {
 
     private String code;
     private String title;

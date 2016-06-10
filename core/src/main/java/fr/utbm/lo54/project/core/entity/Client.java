@@ -2,7 +2,7 @@ package fr.utbm.lo54.project.core.entity;
 
 import java.io.Serializable;
 
-public class Client  implements Serializable, IEntity {
+public class Client implements Serializable, IEntity {
 
      private int id;
      private String lastName;

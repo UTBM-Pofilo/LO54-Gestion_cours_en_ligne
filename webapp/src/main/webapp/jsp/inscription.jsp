@@ -9,6 +9,7 @@
         <title>Course Online | Inscription</title>
     </head>
     <body>
+        <h1><a href="/webapp">HOME</a></h1>
         <h1>Result of the inscription</h1>
         <%
             String result = (String) request.getAttribute(Properties.ATTRIBUTE_RESULT);
