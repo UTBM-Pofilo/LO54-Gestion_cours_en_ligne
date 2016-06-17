@@ -1,3 +1,4 @@
 nb-configuration.xml
-/target/
+/core/target/
 /webapp/target/
+/docs/Screenshots/
